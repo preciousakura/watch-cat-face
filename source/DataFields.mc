@@ -7,9 +7,12 @@ class DataFields extends WatchUi.Layer {
     private var bateryText as WatchUi.Text or Null;
     private var stepsText as WatchUi.Text or Null;
     private var stats as System.Stats or Null = null;
+    private var info as ActivityMonitor.Info or Null = null;
+
 
     public function initialize() {
         stats = System.getSystemStats();
+        info = ActivityMonitor.getInfo();
 
         WatchUi.Layer.initialize({
             :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
@@ -44,7 +47,8 @@ class DataFields extends WatchUi.Layer {
         bateryText.setText(bateryFormat);
         bateryText.draw(dc);
 
-        stepsText.setText("1624");
+        var stepsFormat = Math.round(info.steps).toNumber().toString();
+        stepsText.setText(stepsFormat);
         stepsText.draw(dc);
     }
 }

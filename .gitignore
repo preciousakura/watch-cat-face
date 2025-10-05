@@ -1,2 +1,7 @@
 bin
 developer_key
+*.iq
+*.prg*
+internal-mir
+gen
+mir
