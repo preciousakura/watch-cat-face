@@ -1,0 +1,198 @@
+[ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Graphics,1,14,22]; ]
+import Toybox.Graphics;
+[ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [System,3,14,20]; ]
+import Toybox.System;
+[ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 4; @symbol_importdef<0> = [Toybox,4,7,13]; @symbol_importdef<1> = [WatchUi,4,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 5; @symbol_importdef<0> = [Toybox,5,7,13]; @symbol_importdef<1> = [Time,5,14,18]; @symbol_importdef<2> = [Gregorian,5,19,28]; ]
+import Toybox.Time.Gregorian;
+[ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 7; @symbol_classdef = [DigitalClockView,7,6,22]; @symbol_extends<0> = [WatchUi,7,31,38]; @symbol_extends<1> = [Text,7,39,43]; ]
+class DigitalClockView extends WatchUi.Text {
+    [ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 7; ]
+    <init> {
+    }
+    [ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 7; ]
+    static
+    <init> {
+    }
+    [ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 8; @position = 16; @symbol_vardef = [width,8,16,21]; ]
+    private
+    var width;
+    [ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 9; @position = 16; @symbol_vardef = [height,9,16,22]; ]
+    private
+    var height;
+    [ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 11; @symbol_functiondef = [initialize,11,20,30]; @symbol_param<0> = [dc,11,31,33]; @symbol_param<0>_type<0> = [Dc,11,37,39]; ]
+    public
+    function initialize(dc as Dc) as Void {
+c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_11_41_18_4_start:
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 12 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 12 16 18 ];
+        symbol [ getWidth %tmp.2 12 19 27 ];
+        %tmp.2 = getv function %tmp.1 :getWidth;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        symbol [ width ? 12 8 13 ];
+        putv self :width %tmp.3;
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 13 8 ]
+        %tmp.4 = lgetv %dc;
+        symbol [ dc %tmp.4 13 17 19 ];
+        symbol [ getHeight %tmp.5 13 20 29 ];
+        %tmp.5 = getv function %tmp.4 :getHeight;
+        %tmp.6 = invoke %tmp.4 %tmp.5();
+        symbol [ height ? 13 8 14 ];
+        putv self :height %tmp.6;
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 15 8 ]
+        symbol [ Layer %tmp.8 15 8 13 ];
+        %tmp.8 = getv ? :Layer;
+        symbol [ initialize %tmp.9 15 14 24 ];
+        %tmp.9 = getv function %tmp.8 :initialize;
+        %tmp.10 = newd 2;
+        %tmp.12 = const :locX;
+        symbol [ locX %tmp.12 16 13 17 const ];
+        %tmp.13 = 0;
+        %tmp.14 = dup %tmp.10;
+        %tmp.15 = aputv %tmp.14 %tmp.12 %tmp.13;
+        %tmp.17 = const :locY;
+        symbol [ locY %tmp.17 17 13 17 const ];
+        %tmp.18 = 0;
+        %tmp.19 = dup %tmp.15;
+        %tmp.20 = aputv %tmp.19 %tmp.17 %tmp.18;
+        invoke %tmp.8 %tmp.9(%tmp.20);
+c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_11_41_18_4_stop:
+    }
+    [ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 20; @symbol_functiondef = [update,20,20,26]; @symbol_param<0> = [layer,20,27,32]; @symbol_param<0>_type<0> = [WatchUi,20,36,43]; @symbol_param<0>_type<1> = [Layer,20,44,49]; ]
+    public
+    function update(layer as WatchUi.Layer) as Void {
+c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_start:
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 21 8 ]
+        [ "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_start" "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_stop" ]
+        %dc.1 = local;
+        symbol [ dc %dc.1 21 12 14 ];
+        %tmp.1 = lgetv %layer;
+        symbol [ layer %tmp.1 21 17 22 ];
+        symbol [ getDc %tmp.2 21 23 28 ];
+        %tmp.2 = getv function %tmp.1 :getDc;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %dc.1 %tmp.3;
+        symbol [ dc %dc.1 21 12 14 ];
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 22 8 ]
+        [ "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_start" "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_stop" ]
+        %font.2 = local;
+        symbol [ font %font.2 22 12 16 ];
+        symbol [ Application %tmp.5 22 19 30 ];
+        %tmp.5 = getv ? :Application;
+        symbol [ loadResource %tmp.6 22 31 43 ];
+        %tmp.6 = getv function %tmp.5 :loadResource;
+        symbol [ Rez %tmp.8 22 44 47 ];
+        %tmp.8 = getv ? :Rez;
+        symbol [ Fonts %tmp.9 22 48 53 ];
+        %tmp.9 = getv %tmp.8 :Fonts;
+        symbol [ JoyfulDigits %tmp.10 22 54 66 ];
+        %tmp.10 = getv %tmp.9 :JoyfulDigits;
+        %tmp.11 = invoke %tmp.5 %tmp.6(%tmp.10);
+        %tmp.12 = as %tmp.11 FontType;
+        symbol [ FontType %tmp.12 22 71 79 ];
+        lputv %font.2 %tmp.12;
+        symbol [ font %font.2 22 12 16 ];
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 23 8 ]
+        [ "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_start" "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_stop" ]
+        %color.3 = local;
+        symbol [ color %color.3 23 12 17 ];
+        symbol [ Application %tmp.14 23 20 31 ];
+        %tmp.14 = getv ? :Application;
+        symbol [ Properties %tmp.15 23 32 42 ];
+        %tmp.15 = getv %tmp.14 :Properties;
+        symbol [ getValue %tmp.16 23 43 51 ];
+        %tmp.16 = getv function %tmp.15 :getValue;
+        %tmp.17 = "ForegroundColor";
+        %tmp.18 = invoke %tmp.15 %tmp.16(%tmp.17);
+        lputv %color.3 %tmp.18;
+        symbol [ color %color.3 23 12 17 ];
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 24 8 ]
+        %tmp.19 = lgetv %dc.1;
+        symbol [ dc %tmp.19 24 8 10 ];
+        symbol [ setColor %tmp.20 24 11 19 ];
+        %tmp.20 = getv function %tmp.19 :setColor;
+        %tmp.21 = lgetv %color.3;
+        symbol [ color %tmp.21 24 20 25 ];
+        symbol [ Graphics %tmp.22 24 27 35 ];
+        %tmp.22 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.23 24 36 53 ];
+        %tmp.23 = getv %tmp.22 :COLOR_TRANSPARENT;
+        invoke %tmp.19 %tmp.20(%tmp.21, %tmp.23);
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 25 8 ]
+        %tmp.24 = lgetv %dc.1;
+        symbol [ dc %tmp.24 25 8 10 ];
+        symbol [ clear %tmp.25 25 11 16 ];
+        %tmp.25 = getv function %tmp.24 :clear;
+        invoke %tmp.24 %tmp.25();
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 27 8 ]
+        [ "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_start" "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_stop" ]
+        %clockTime.4 = local;
+        symbol [ clockTime %clockTime.4 27 12 21 ];
+        symbol [ System %tmp.26 27 24 30 ];
+        %tmp.26 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.27 27 31 43 ];
+        %tmp.27 = getv function %tmp.26 :getClockTime;
+        %tmp.28 = invoke %tmp.26 %tmp.27();
+        lputv %clockTime.4 %tmp.28;
+        symbol [ clockTime %clockTime.4 27 12 21 ];
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 28 8 ]
+        [ "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_start" "c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_stop" ]
+        %hourMinString.5 = local;
+        symbol [ hourMinString %hourMinString.5 28 12 25 ];
+        symbol [ Lang %tmp.29 28 28 32 ];
+        %tmp.29 = getm $.Toybox.Lang;
+        symbol [ format %tmp.30 28 33 39 ];
+        %tmp.30 = getv function %tmp.29 :format;
+        %tmp.31 = "$1$:$2$";
+        %tmp.32 = newa 2;
+        %tmp.33 = lgetv %clockTime.4;
+        symbol [ clockTime %tmp.33 28 52 61 ];
+        symbol [ hour %tmp.34 28 62 66 ];
+        %tmp.34 = getv %tmp.33 :hour;
+        %tmp.35 = dup %tmp.32;
+        %tmp.36 = aputv %tmp.35 0 %tmp.34;
+        %tmp.37 = lgetv %clockTime.4;
+        symbol [ clockTime %tmp.37 28 68 77 ];
+        symbol [ min %tmp.38 28 78 81 ];
+        %tmp.38 = getv %tmp.37 :min;
+        symbol [ format %tmp.39 28 82 88 ];
+        %tmp.39 = getv function %tmp.38 :format;
+        %tmp.40 = "%02d";
+        %tmp.41 = invoke %tmp.38 %tmp.39(%tmp.40);
+        %tmp.42 = dup %tmp.36;
+        %tmp.43 = aputv %tmp.42 1 %tmp.41;
+        %tmp.44 = invoke %tmp.29 %tmp.30(%tmp.31, %tmp.43);
+        lputv %hourMinString.5 %tmp.44;
+        symbol [ hourMinString %hourMinString.5 28 12 25 ];
+[ "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc" 29 8 ]
+        %tmp.45 = lgetv %dc.1;
+        symbol [ dc %tmp.45 29 8 10 ];
+        symbol [ drawText %tmp.46 29 11 19 ];
+        %tmp.46 = getv function %tmp.45 :drawText;
+        symbol [ width %tmp.48 29 20 25 ];
+        %tmp.48 = getv ? :width;
+        %tmp.49 = 2;
+        %tmp.50 = div %tmp.48 %tmp.49;
+        symbol [ height %tmp.52 29 29 35 ];
+        %tmp.52 = getv ? :height;
+        %tmp.53 = 3;
+        %tmp.54 = div %tmp.52 %tmp.53;
+        %tmp.55 = lgetv %font.2;
+        symbol [ font %tmp.55 29 38 42 ];
+        %tmp.56 = lgetv %hourMinString.5;
+        symbol [ hourMinString %tmp.56 29 43 56 ];
+        symbol [ Graphics %tmp.57 29 57 65 ];
+        %tmp.57 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.58 29 66 85 ];
+        %tmp.58 = getv %tmp.57 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.45 %tmp.46(%tmp.50, %tmp.54, %tmp.55, %tmp.56, %tmp.58);
+c__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_DigitalClockViewLayer_mc_20_59_30_4_stop:
+    }
+}
+[ @file = "c:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\DigitalClockViewLayer.mc"; @line = 1; ]
+<init> {
+}

@@ -1,0 +1,135 @@
+[ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [WatchUi,1,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [System,3,14,20]; ]
+import Toybox.System;
+[ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 5; @symbol_classdef = [AnimationLayer,5,6,20]; @symbol_extends<0> = [WatchUi,5,29,36]; @symbol_extends<1> = [AnimationLayer,5,37,51]; ]
+class AnimationLayer extends WatchUi.AnimationLayer {
+    [ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 6; @position = 8; @symbol_vardef = [delegate,6,8,16]; @symbol_type<0> = [AnimationDelegate,6,20,37]; ]
+    var delegate as AnimationDelegate;
+    [ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 8; @symbol_functiondef = [initialize,8,13,23]; @symbol_param<0> = [rez,8,24,27]; @symbol_param<0>_type<0> = [Lang,8,31,35]; @symbol_param<0>_type<1> = [ResourceId,8,36,46]; @symbol_param<0>_type<2> = [WatchUi,8,50,57]; @symbol_param<0>_type<3> = [AnimationResource,8,58,75]; ]
+    function initialize(rez as Lang.ResourceId or WatchUi.AnimationResource) as Void {
+C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_start:
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 9 8 ]
+        [ "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_start" "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_stop" ]
+        %dev.1 = local;
+        symbol [ dev %dev.1 9 12 15 ];
+        symbol [ System %tmp.1 9 18 24 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getDeviceSettings %tmp.2 9 25 42 ];
+        %tmp.2 = getv function %tmp.1 :getDeviceSettings;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %dev.1 %tmp.3;
+        symbol [ dev %dev.1 9 12 15 ];
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 10 8 ]
+        [ "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_start" "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_stop" ]
+        %res.2 = local;
+        symbol [ res %res.2 10 12 15 ];
+        symbol [ WatchUi %tmp.4 10 18 25 ];
+        %tmp.4 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.5 10 26 38 ];
+        %tmp.5 = getv function %tmp.4 :loadResource;
+        %tmp.6 = lgetv %rez;
+        symbol [ rez %tmp.6 10 39 42 ];
+        %tmp.7 = invoke %tmp.4 %tmp.5(%tmp.6);
+        %tmp.8 = as %tmp.7 BitmapResource;
+        symbol [ BitmapResource %tmp.8 10 47 61 ];
+        lputv %res.2 %tmp.8;
+        symbol [ res %res.2 10 12 15 ];
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 12 8 ]
+        [ "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_start" "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_stop" ]
+        %x.3 = local;
+        symbol [ x %x.3 12 12 13 ];
+        %tmp.9 = 0;
+        lputv %x.3 %tmp.9;
+        symbol [ x %x.3 12 12 13 ];
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 13 8 ]
+        [ "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_start" "C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_stop" ]
+        %y.4 = local;
+        symbol [ y %y.4 13 12 13 ];
+        %tmp.10 = lgetv %dev.1;
+        symbol [ dev %tmp.10 13 17 20 ];
+        symbol [ screenHeight %tmp.11 13 21 33 ];
+        %tmp.11 = getv %tmp.10 :screenHeight;
+        %tmp.12 = lgetv %res.2;
+        symbol [ res %tmp.12 13 36 39 ];
+        symbol [ getHeight %tmp.13 13 40 49 ];
+        %tmp.13 = getv function %tmp.12 :getHeight;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        %tmp.15 = sub %tmp.11 %tmp.14;
+        %tmp.16 = 2;
+        %tmp.17 = div %tmp.15 %tmp.16;
+        lputv %y.4 %tmp.17;
+        symbol [ y %y.4 13 12 13 ];
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 15 8 ]
+        symbol [ AnimationLayer %tmp.19 15 8 22 ];
+        %tmp.19 = getv ? :AnimationLayer;
+        symbol [ initialize %tmp.20 15 23 33 ];
+        %tmp.20 = getv function %tmp.19 :initialize;
+        %tmp.21 = lgetv %rez;
+        symbol [ rez %tmp.21 15 34 37 ];
+        %tmp.22 = newd 2;
+        %tmp.24 = const :locX;
+        symbol [ locX %tmp.24 15 40 44 const ];
+        %tmp.25 = lgetv %x.3;
+        symbol [ x %tmp.25 15 46 47 ];
+        %tmp.26 = dup %tmp.22;
+        %tmp.27 = aputv %tmp.26 %tmp.24 %tmp.25;
+        %tmp.29 = const :locY;
+        symbol [ locY %tmp.29 15 49 53 const ];
+        %tmp.30 = lgetv %y.4;
+        symbol [ y %tmp.30 15 55 56 ];
+        %tmp.31 = dup %tmp.27;
+        %tmp.32 = aputv %tmp.31 %tmp.29 %tmp.30;
+        invoke %tmp.19 %tmp.20(%tmp.21, %tmp.32);
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 16 8 ]
+        symbol [ AnimationDelegate %tmp.36 16 23 40 ];
+        %tmp.36 = getv ? :AnimationDelegate;
+        %tmp.33 = newc %tmp.36 ();
+        symbol [ delegate ? 16 8 16 ];
+        putv self :delegate %tmp.33;
+C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_8_77_17_4_stop:
+    }
+    [ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 19; @symbol_functiondef = [onPlay,19,20,26]; ]
+    public
+    function onPlay() as Void {
+C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_19_37_21_4_start:
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 20 8 ]
+        %tmp.1 = self;
+        symbol [ play %tmp.2 20 8 12 ];
+        %tmp.2 = getv function %tmp.1 :play;
+        %tmp.3 = newd 1;
+        %tmp.5 = const :delegate;
+        symbol [ delegate %tmp.5 20 15 23 const ];
+        %tmp.6 = self;
+        symbol [ self %tmp.6 20 25 29 ];
+        symbol [ delegate %tmp.7 20 30 38 ];
+        %tmp.7 = getv %tmp.6 :delegate;
+        %tmp.8 = dup %tmp.3;
+        %tmp.9 = aputv %tmp.8 %tmp.5 %tmp.7;
+        invoke %tmp.1 %tmp.2(%tmp.9);
+C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_19_37_21_4_stop:
+    }
+    [ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 23; @symbol_functiondef = [onStop,23,20,26]; ]
+    public
+    function onStop() as Void {
+C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_23_37_25_4_start:
+[ "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc" 24 8 ]
+        %tmp.1 = self;
+        symbol [ stop %tmp.2 24 8 12 ];
+        %tmp.2 = getv function %tmp.1 :stop;
+        invoke %tmp.1 %tmp.2();
+C__Users_Isabel_Cristina_OneDrive_햞ea_de_Trabalho_WatchCatFace_source_AnimationLayer_mc_23_37_25_4_stop:
+    }
+}
+[ @file = "C:\Users\Isabel Cristina\OneDrive\햞ea de Trabalho\WatchCatFace\source\AnimationLayer.mc"; @line = 1; ]
+<init> {
+}
