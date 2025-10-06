@@ -49,14 +49,20 @@ class WatchCatFaceView extends WatchUi.WatchFace {
     }
 
     function onHide() as Void {
-        animation.onStop();
+        if(animation != null) {
+            animation.onStop();
+        }
     }
 
     function onExitSleep() as Void {
-        animation.onPlay();
+        if(animation != null) {
+            animation.onPlay();
+        }
     }
 
     function onEnterSleep() as Void {
-        animation.onStop();
+        if(animation != null) {
+            animation.onStop();
+        }
     }
 }
