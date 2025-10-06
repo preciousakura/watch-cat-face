@@ -20,10 +20,7 @@ class DataFields extends WatchUi.Layer {
         info = ActivityMonitor.getInfo();
 
     	var heartrateIterator = ActivityMonitor.getHeartRateHistory(1, true);
-        var currentHeartrate = heartrateIterator.next().heartRate;
-        if(currentHeartrate != Toybox.ActivityMonitor.INVALID_HR_SAMPLE) {
-            heartRate = currentHeartrate;
-        }		
+        heartRate = heartrateIterator.next().heartRate;
 
         WatchUi.Layer.initialize({
             :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
@@ -56,7 +53,12 @@ class DataFields extends WatchUi.Layer {
         dc.drawBitmap(width * 0.47 - (stepsTextSize[0]/2 + 15), height - 46, stepsIcon);
         dc.drawText(width * 0.5 - (stepsTextSize[0]/2), height - 50, Graphics.FONT_XTINY, stepsFormat, Graphics.TEXT_JUSTIFY_LEFT);
 
-        var heartFormat = heartRate.toString();
+        var heartFormat = "-";
+
+        if(heartRate != Toybox.ActivityMonitor.INVALID_HR_SAMPLE) {
+            heartFormat = heartRate.toString();
+        }
+
         var heartRateTextSize = dc.getTextDimensions(heartFormat, Graphics.FONT_XTINY);
         dc.drawBitmap(width * 0.47 - (heartRateTextSize[0]/2 + 15), height - 76, heartIcon);
         dc.drawText(width * 0.5 - (heartRateTextSize[0]/2), height - 80, Graphics.FONT_XTINY, heartFormat, Graphics.TEXT_JUSTIFY_LEFT);
