@@ -31,6 +31,7 @@ class WatchCatFaceView extends WatchUi.WatchFace {
         if(dataFields != null) {
             insertLayer(dataFields, 2);
         }
+        setLayout(Rez.Layouts.WatchFace(dc));
     }
 
     function onShow() as Void {
@@ -54,7 +55,7 @@ class WatchCatFaceView extends WatchUi.WatchFace {
         if(dataFields != null) {
             dataFields.onUpdate();
         }
-
+        View.onUpdate(dc);
     }
 
     function onHide() as Void {
