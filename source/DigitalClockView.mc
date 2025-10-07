@@ -5,21 +5,21 @@ import Toybox.WatchUi;
 import Toybox.Time.Gregorian;
 
 class DigitalClockView extends WatchUi.Layer {
-    var time as WatchUi.Text;
-    var date as WatchUi.Text;
+    private var timeDataField as DataField or Null = null;
+    private var dateDataField as DataField or Null = null;
 
     public function initialize(dc as Dc) {
         var height = dc.getHeight();
 
         var font = Application.loadResource(Rez.Fonts.JoyfulDigits) as FontType;
-        time = new WatchUi.Text({
+        timeDataField = new DataField({
             :color=>Graphics.COLOR_WHITE,
             :font=>font,
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
             :locY=>height * 0.15
         });
 
-        date = new WatchUi.Text({
+        dateDataField = new DataField({
             :color=>Graphics.COLOR_WHITE,
             :font=>Graphics.FONT_AUX1,
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
@@ -41,14 +41,14 @@ class DigitalClockView extends WatchUi.Layer {
             var clockTime = System.getClockTime();
             var hourMinString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
 
-            time.setText(hourMinString);
-            time.draw(dc); 
+            timeDataField.setText(hourMinString);
+            timeDataField.draw(dc); 
 
             var now = Time.now();
             var dateInfo = Gregorian.info(now, Time.FORMAT_MEDIUM);
             var dateString = Lang.format("$1$, $2$ $3$", [dateInfo.day_of_week, dateInfo.month, dateInfo.day]);
-            date.setText(dateString);
-            date.draw(dc);
+            dateDataField.setText(dateString);
+            dateDataField.draw(dc);
         }
        
     }
