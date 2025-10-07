@@ -9,19 +9,21 @@ class DigitalClockView extends WatchUi.Layer {
     var date as WatchUi.Text;
 
     public function initialize(dc as Dc) {
+        var height = dc.getHeight();
+
         var font = Application.loadResource(Rez.Fonts.JoyfulDigits) as FontType;
         time = new WatchUi.Text({
             :color=>Graphics.COLOR_WHITE,
             :font=>font,
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>340/6
+            :locY=>height * 0.15
         });
 
         date = new WatchUi.Text({
             :color=>Graphics.COLOR_WHITE,
             :font=>Graphics.FONT_AUX1,
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>340/8
+            :locY=>height * 0.12
         });
 
         WatchUi.Layer.initialize({
@@ -30,20 +32,24 @@ class DigitalClockView extends WatchUi.Layer {
         });
     }
 
-    public function onUpdate(layer as WatchUi.Layer) as Void {
-        var dc = layer.getDc();
-        dc.clear();
+    public function onUpdate() as Void {
+        var dc = Layer.getDc();
+        if(dc != null) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.clear();
 
-        var clockTime = System.getClockTime();
-        var hourMinString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
+            var clockTime = System.getClockTime();
+            var hourMinString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
 
-        time.setText(hourMinString);
-        time.draw(dc); 
+            time.setText(hourMinString);
+            time.draw(dc); 
 
-        var now = Time.now();
-        var dateInfo = Gregorian.info(now, Time.FORMAT_MEDIUM);
-        var dateString = Lang.format("$1$, $2$ $3$", [dateInfo.day_of_week, dateInfo.month, dateInfo.day]);
-        date.setText(dateString);
-        date.draw(dc);
+            var now = Time.now();
+            var dateInfo = Gregorian.info(now, Time.FORMAT_MEDIUM);
+            var dateString = Lang.format("$1$, $2$ $3$", [dateInfo.day_of_week, dateInfo.month, dateInfo.day]);
+            date.setText(dateString);
+            date.draw(dc);
+        }
+       
     }
 }

@@ -18,34 +18,40 @@ class WatchCatFaceView extends WatchUi.WatchFace {
         dc.clear();
 
         animation = new AnimationLayer(Rez.Drawables.NeonCat);
-        insertLayer(animation, 0);
+        if(animation != null) {
+            insertLayer(animation, 0);
+        }
 
         clockLayer = new DigitalClockView(dc);
-        insertLayer(clockLayer, 1);
+        if(clockLayer != null) {
+            insertLayer(clockLayer, 1);
+        }
 
         dataFields = new DataFields();
-        insertLayer(dataFields, 2);
+        if(dataFields != null) {
+            insertLayer(dataFields, 2);
+        }
     }
 
     function onShow() as Void {
-        animation.onPlay();
+        if(animation != null) {
+            animation.onPlay();
+        }
     }
 
     function onUpdate(dc as Dc) as Void {
         if(animation != null) {
-            if (animation.delegate.animationDone) {
-                animation.delegate.animationDone = false;
-                animation.onPlay();
-            }
+            animation.onPlay();
         }
 
         if(clockLayer != null) {
-            clockLayer.onUpdate(clockLayer);
+            clockLayer.onUpdate();
         }
 
         if(dataFields != null) {
-            dataFields.onUpdate(dataFields);
+            dataFields.onUpdate();
         }
+
     }
 
     function onHide() as Void {

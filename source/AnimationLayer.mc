@@ -17,7 +17,10 @@ class AnimationLayer extends WatchUi.AnimationLayer {
     }
 
     public function onPlay() as Void {
-        play({:delegate=>self.delegate});
+        if (delegate.animationDone) {
+            play({:delegate=>self.delegate});
+            delegate.animationDone = false;
+        }
     }
 
     public function onStop() as Void {

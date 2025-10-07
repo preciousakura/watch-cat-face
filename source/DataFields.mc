@@ -37,30 +37,31 @@ class DataFields extends WatchUi.Layer {
         heartIcon = Application.loadResource(Rez.Drawables.HeartIcon) as BitmapResource;
     }
 
-    public function onUpdate(layer as WatchUi.Layer) as Void {
-        var dc = layer.getDc();
+    public function onUpdate() as Void {
+        var dc = Layer.getDc();
+        if(dc != null) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.clear();
 
-        dc.clear();
+            var battery = Math.round(stats.battery).toNumber().toString();
+            var bateryFormat = battery + "%";
+            dc.drawBitmap(width - 55, height / 2 - 25, bateryIcon);
+            dc.drawText(width - 40, height / 2, Graphics.FONT_XTINY, bateryFormat, Graphics.TEXT_JUSTIFY_CENTER);
 
-        var battery = Math.round(stats.battery).toNumber().toString();
-        var bateryFormat = battery + "%";
-        dc.drawBitmap(width - 55, height / 2 - 25, bateryIcon);
-        dc.drawText(width - 40, height / 2, Graphics.FONT_XTINY, bateryFormat, Graphics.TEXT_JUSTIFY_CENTER);
+            var heartFormat = "-";
+            if(heartRate != Toybox.ActivityMonitor.INVALID_HR_SAMPLE) {
+                heartFormat = heartRate.toString();
+            }
+            var heartRateTextSize = dc.getTextDimensions(heartFormat, Graphics.FONT_XTINY);
+            dc.drawBitmap(width * 0.42 - (heartRateTextSize[0]/2), height - 76, heartIcon);
+            dc.drawText(width * 0.5, height - 80, Graphics.FONT_XTINY, heartFormat, Graphics.TEXT_JUSTIFY_CENTER);
 
-        var steps = Math.round(info.steps).toNumber();
-        var stepsFormat = steps.toString();
-        var stepsTextSize = dc.getTextDimensions(stepsFormat, Graphics.FONT_XTINY);
-        dc.drawBitmap(width * 0.47 - (stepsTextSize[0]/2 + 15), height - 46, stepsIcon);
-        dc.drawText(width * 0.5 - (stepsTextSize[0]/2), height - 50, Graphics.FONT_XTINY, stepsFormat, Graphics.TEXT_JUSTIFY_LEFT);
-
-        var heartFormat = "-";
-
-        if(heartRate != Toybox.ActivityMonitor.INVALID_HR_SAMPLE) {
-            heartFormat = heartRate.toString();
+            var steps = Math.round(info.steps).toNumber();
+            var stepsFormat = steps.toString();
+            var stepsTextSize = dc.getTextDimensions(stepsFormat, Graphics.FONT_XTINY);
+            dc.drawBitmap(width * 0.42 - (stepsTextSize[0]/2), height - 46, stepsIcon);
+            dc.drawText(width * 0.5, height - 50, Graphics.FONT_XTINY, stepsFormat, Graphics.TEXT_JUSTIFY_CENTER);
         }
-
-        var heartRateTextSize = dc.getTextDimensions(heartFormat, Graphics.FONT_XTINY);
-        dc.drawBitmap(width * 0.47 - (heartRateTextSize[0]/2 + 15), height - 76, heartIcon);
-        dc.drawText(width * 0.5 - (heartRateTextSize[0]/2), height - 80, Graphics.FONT_XTINY, heartFormat, Graphics.TEXT_JUSTIFY_LEFT);
+      
     }
 }
