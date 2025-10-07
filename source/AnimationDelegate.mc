@@ -2,7 +2,7 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class AnimationDelegate extends WatchUi.AnimationDelegate {
-    var animationDone = true;
+    var animationDone = false;
 
     function initialize() {
         WatchUi.AnimationDelegate.initialize();

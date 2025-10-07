@@ -41,7 +41,10 @@ class WatchCatFaceView extends WatchUi.WatchFace {
 
     function onUpdate(dc as Dc) as Void {
         if(animation != null) {
-            animation.onPlay();
+            if (animation.delegate.animationDone) {
+                animation.delegate.animationDone = false;
+                animation.onPlay();
+            }
         }
 
         if(clockLayer != null) {
