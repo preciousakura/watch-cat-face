@@ -1,4 +1,5 @@
 import Toybox.Lang;
+import Toybox.Activity;
 import Toybox.ActivityMonitor;
 import Toybox.System;
 import Toybox.WatchUi;
@@ -61,6 +62,20 @@ class DataFields extends WatchUi.Layer {
         });
     }
 
+    private function getHeartRate() {
+        var heartRate = "-";
+        var info = Activity.getActivityInfo();
+        if (info.currentHeartRate != null) {
+            heartRate = info.currentHeartRate;
+        } else {
+            var latestHeartRateSample = ActivityMonitor.getHeartRateHistory(1, true).next();
+            if(latestHeartRateSample.heartRate != Toybox.ActivityMonitor.INVALID_HR_SAMPLE) {
+                heartRate = latestHeartRateSample.heartRate.toString();
+            }
+        }
+        return heartRate.toString();
+    }
+
     public function onUpdate() as Void {
         var dc = Layer.getDc();
         if(dc != null) {
@@ -89,12 +104,7 @@ class DataFields extends WatchUi.Layer {
             stepsDataField.setIconLocation(width * 0.42 - (stepsTextSize[0]/2), height - 46);
             stepsDataField.draw(dc);
 
-            var heartrateIterator = ActivityMonitor.getHeartRateHistory(1, true);
-            var heartRate = heartrateIterator.next().heartRate;
-            var heartFormat = "-";
-            if(heartRate != Toybox.ActivityMonitor.INVALID_HR_SAMPLE) {
-                heartFormat = heartRate.toString();
-            }
+            var heartFormat = getHeartRate();
             var heartRateTextSize = dc.getTextDimensions(heartFormat, Graphics.FONT_XTINY);
             heartRateDataField.setText(heartFormat);
             heartRateDataField.setIconLocation(width * 0.42 - (heartRateTextSize[0]/2), height - 76);
