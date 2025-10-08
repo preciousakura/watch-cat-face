@@ -3,4 +3,5 @@
     <bitmap id="StepsIcon" filename="steps_icon.svg" dithering="none" />
     <bitmap id="LightningIcon" filename="lightning_icon.svg" dithering="none" />
     <bitmap id="HeartIcon" filename="heart_icon.svg" dithering="none" />
+    <bitmap id="FireIcon" filename="fire_icon.svg" dithering="none" />
 </drawables>

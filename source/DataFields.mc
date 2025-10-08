@@ -10,6 +10,7 @@ class DataFields extends WatchUi.Layer {
     private var batteryDataField as DataField or Null;
     private var stepsDataField as DataField or Null = null;
     private var heartRateDataField as DataField or Null = null;
+    private var caloriesDataField as DataField or Null = null;
 
     public function initialize() {
         WatchUi.Layer.initialize({
@@ -30,6 +31,15 @@ class DataFields extends WatchUi.Layer {
             :iconLocX=>width - 55, 
             :iconLocY=>height / 2 - 25, 
             :iconRezId=>Rez.Drawables.LightningIcon,
+        });
+        
+        caloriesDataField = new DataField({
+            :locX=>width * 0.5, 
+            :locY=>height - 110,
+            :justification=>Graphics.TEXT_JUSTIFY_CENTER,
+            :color=>Graphics.COLOR_WHITE,
+            :font=>Graphics.FONT_XTINY,
+            :iconRezId=>Rez.Drawables.FireIcon,
         });
 
         stepsDataField = new DataField({
@@ -64,6 +74,14 @@ class DataFields extends WatchUi.Layer {
             batteryDataField.draw(dc);
 
             var info = ActivityMonitor.getInfo();
+            
+            var calories = Math.round(info.calories).toNumber();
+            var caloriesFormat = calories.toString();
+            var caloriesTextSize = dc.getTextDimensions(caloriesFormat, Graphics.FONT_XTINY);
+            caloriesDataField.setText(caloriesFormat);
+            caloriesDataField.setIconLocation(width * 0.42 - (caloriesTextSize[0]/2), height - 106);
+            caloriesDataField.draw(dc);
+
             var steps = Math.round(info.steps).toNumber();
             var stepsFormat = steps.toString();
             var stepsTextSize = dc.getTextDimensions(stepsFormat, Graphics.FONT_XTINY);
