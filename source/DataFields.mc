@@ -11,17 +11,7 @@ class DataFields extends WatchUi.Layer {
     private var stepsDataField as DataField or Null = null;
     private var heartRateDataField as DataField or Null = null;
 
-    private var stats as System.Stats or Null = null;
-    private var info as ActivityMonitor.Info or Null = null;
-    private var heartRate as Lang.Numeric or Null = null;
-
     public function initialize() {
-        stats = System.getSystemStats();
-        info = ActivityMonitor.getInfo();
-
-    	var heartrateIterator = ActivityMonitor.getHeartRateHistory(1, true);
-        heartRate = heartrateIterator.next().heartRate;
-
         WatchUi.Layer.initialize({
             :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
             :locY=>WatchUi.LAYOUT_VALIGN_CENTER
@@ -67,11 +57,13 @@ class DataFields extends WatchUi.Layer {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             dc.clear();
 
+            var stats = System.getSystemStats();
             var battery = Math.round(stats.battery).toNumber().toString();
             var bateryFormat = battery + "%";
             batteryDataField.setText(bateryFormat);
             batteryDataField.draw(dc);
 
+            var info = ActivityMonitor.getInfo();
             var steps = Math.round(info.steps).toNumber();
             var stepsFormat = steps.toString();
             var stepsTextSize = dc.getTextDimensions(stepsFormat, Graphics.FONT_XTINY);
@@ -79,6 +71,8 @@ class DataFields extends WatchUi.Layer {
             stepsDataField.setIconLocation(width * 0.42 - (stepsTextSize[0]/2), height - 46);
             stepsDataField.draw(dc);
 
+            var heartrateIterator = ActivityMonitor.getHeartRateHistory(1, true);
+            var heartRate = heartrateIterator.next().heartRate;
             var heartFormat = "-";
             if(heartRate != Toybox.ActivityMonitor.INVALID_HR_SAMPLE) {
                 heartFormat = heartRate.toString();
